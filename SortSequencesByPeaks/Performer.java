@@ -6,22 +6,22 @@ import java.util.Scanner;
 public class Performer {
 
     public static void main(String[] args) {
-	int amountOfLines;
+	int amountOfSequences;
     Scanner scanner = new Scanner(System.in);
-    amountOfLines = scanner.nextInt();
-    Line[] Lines = new Line[amountOfLines];
-    for(int i = 0; i < amountOfLines;i++){
+    amountOfSequences = scanner.nextInt();
+    Sequence[] Sequences = new Sequence[amountOfSequences];
+    for(int i = 0; i < amountOfSequences;i++){
         int n;
         n = scanner.nextInt();
-        int[] currentLine = new int[n];
+        int[] currentSequence = new int[n];
         for(int j = 0; j < n; j++){
-            currentLine[j] = scanner.nextInt();
+            currentSequence[j] = scanner.nextInt();
         }
-        Lines[i] = new Line(n, currentLine);
+        Sequences[i] = new Sequence(n, currentSequence);
     }
-        Arrays.sort(Lines);
-        for(int i = 0; i < amountOfLines; i++){
-            Line.printLine(Lines[i]);
+        Arrays.sort(Sequences);
+        for(int i = 0; i < amountOfSequences; i++){
+            Sequence.printSequence(Sequences[i]);
             System.out.println();
         }
     }
