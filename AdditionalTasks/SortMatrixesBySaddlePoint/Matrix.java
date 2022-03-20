@@ -1,6 +1,6 @@
 
 
-class Matrix implements Comparable<Matrix>
+public class Matrix implements Comparable<Matrix>
 {
     int m, n;
     int[][] mat;
@@ -45,8 +45,9 @@ class Matrix implements Comparable<Matrix>
                 if ((fl == 1) && (mini[i] == maxj[j]) && (mini[i] > a.value))
                     a.value = mini[i];
             }
-
-        return max;
+        if (fl == 0)
+            a.value = max;
+        return a.value;
     }
 
     public static void displayMatrix(Matrix mat)
@@ -61,7 +62,6 @@ class Matrix implements Comparable<Matrix>
         System.out.print(mat.value + "\n\n");
     }
 
-    @Override
     public int compareTo(Matrix o) {
         if(getValue(o) > getValue(new Matrix(m,n,mat))){
             return 1;
