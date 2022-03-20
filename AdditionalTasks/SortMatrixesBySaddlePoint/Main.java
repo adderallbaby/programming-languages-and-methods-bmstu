@@ -1,4 +1,3 @@
-
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -12,7 +11,7 @@ public class Main
         System.out.println("Enter m and n");
         m = in.nextInt();
         n = in.nextInt();
-        Matrix[] mat = new Matrix[100];
+        Matrix[] mat = new Matrix[3];
         while ((com == 1) || (com == 2))
         {
             System.out.println("Enter 1 if you want to sort and see sorted matrices, enter 2 if you want to add a matrix");
@@ -29,7 +28,11 @@ public class Main
             }
             if (com == 1)
             {
+                System.out.println(k);
+
                 Arrays.sort(mat);
+                for (i = 0 ; i < k ; i++)
+                    Matrix.displayMatrix(mat[i]);
             }
         }
     }
