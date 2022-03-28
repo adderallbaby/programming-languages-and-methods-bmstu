@@ -1,9 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.Path2D;
+import java.util.Random;
 
 public class CanvasPanel extends JPanel {
     private int radius = 100;
-    private int n = 0;
+    private int n = 8;
     public void setSplitting(int radius, int n) {
         this.radius = radius;
         this.n = n;
@@ -27,7 +29,24 @@ public class CanvasPanel extends JPanel {
             x[i] = (int) (x0 + r * Math.cos(Math.toRadians(angle)));
             y[i] = (int) (y0 + r * Math.sin(Math.toRadians(angle)));
 
+
         }
+        for(int i = 0; i < noOfDividingPoints - 1; i++){
+            //graphics.fillPolygon(new int[]{x0, x[i], x[i+1]}, new int[]{y[i], y0, y[i+1]}, 3);
+            Path2D path = new Path2D.Double();
+            path.moveTo(x0,y0);
+            path.moveTo(x[i], y[i]);
+            path.moveTo(x[i+1], y[i+1]);
+            Random random = new Random();
+            // Массив из пяти цветов
+            Color[] colors = { Color.BLUE, Color.GREEN, Color.MAGENTA, Color.RED,
+                    Color.CYAN };
+            int pos = random.nextInt(colors.length);
+            // Меняем цвет у кнопки
+            graphics.setColor(colors[pos]);
+            graphics.fillPolygon(new int[]{x0,x[i],x[i+1]}, new int[]{y0, y[i], y[i+1]}, 3);
+        }
+
 
         for(int i = 0 ; i < noOfDividingPoints  ;i++)
         {
